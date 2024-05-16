@@ -1,13 +1,13 @@
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from pymongo.server_api import ServerApi
 from pymongo import MongoClient
 from pymongo.database import Database
 
 DATABASE_NAME = "llm-judge"
-COLLECTIONS = {"questions", "answers", "judgments", "prompts"}
+COLLECTIONS = {"questions", "answers", "judgments", "prompts", "evals"}
 
-load_dotenv("./.env", override=True)
+load_dotenv(find_dotenv(), override=True)
 
 
 class DatabaseClient:
