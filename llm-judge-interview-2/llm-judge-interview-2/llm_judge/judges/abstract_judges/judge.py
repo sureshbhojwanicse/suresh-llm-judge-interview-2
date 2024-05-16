@@ -117,7 +117,9 @@ class Judge(ABC):
         """
         Judge a single pair of answers using the given LLM by calling adapters.
         """
-        llm = AdapterFactory.get_adapter(judge_llm)
+
+        # change function call
+        llm = AdapterFactory.get_adapter_by_path(judge_llm)
         input_conv = llm.convert_to_input(conv)
         winner = "error"
         judgment = ""
