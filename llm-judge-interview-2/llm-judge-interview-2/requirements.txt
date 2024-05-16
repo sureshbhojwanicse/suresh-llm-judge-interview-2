@@ -2,4 +2,6 @@ jsonargparse
 pymongo
 pandas
 voyageai
-sklearn
+scikit-learn
+dspy-ai
+jinja
