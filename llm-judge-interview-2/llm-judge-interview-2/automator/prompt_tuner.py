@@ -87,7 +87,7 @@ class Judgementor(dspy.Module):
 
 class PromptTuner:
     """
-    Main class for automatically updating the judgement prompt.
+    Main class for automatically updating the judgement prompt
 
     This class prepares training data, implements the DSPy Signature and module, trains the model using DSPy compiler, and evaluates its performance against the ideal judgement.
 
