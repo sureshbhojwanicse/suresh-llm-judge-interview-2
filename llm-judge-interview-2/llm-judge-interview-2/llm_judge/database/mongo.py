@@ -1,13 +1,15 @@
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from pymongo.server_api import ServerApi
-from pymongo import MongoClient
+from pymongo import MongoClient, InsertOne
 from pymongo.database import Database
+import json
+from pathlib import Path
 
 DATABASE_NAME = "llm-judge"
-COLLECTIONS = {"questions", "answers", "judgments", "prompts"}
+COLLECTIONS = {"questions", "answers", "judgments", "prompts", "evals"}
 
-load_dotenv("./.env", override=True)
+load_dotenv(find_dotenv(), override=True)
 
 
 class DatabaseClient:
@@ -31,3 +33,11 @@ class DatabaseClient:
 
 
 DatabaseClient.connect()
+
+# tried to import the given prompts
+# # prompt_file_path = Path()
+# requesting = []
+# with open("../llm-judge.prompts.json", "r") as f:
+#     myDict = json.loads(f.read())
+#     prompt_collection = DatabaseClient.get_collection("prompts")
+#     prompt_collection.insert_many(myDict)

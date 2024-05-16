@@ -2,8 +2,14 @@
 given a ground truth, evaluate quailty of the output of a judge.
 """
 
+import yaml
+from llm_judge.database.models.eval_results import EvalResult
+from llm_judge.judges import (
+    BaselineComparisonJudge,
+    GroundTruthComparisonJudge,
+    ExactMatchJudge,
+)
 import os.path
-
 import pandas as pd
 from datetime import datetime
 from typing import Literal
@@ -17,9 +23,11 @@ import random
 
 from scripts.gen_judgments import main as gen_judgments
 from llm_judge.judges import BaselineComparisonJudge
-from llm_judge.judges.concrete_judges.dynamic_few_shot_judge import DynamicFewShotJudge
+from llm_judge.judges.concrete_judges.dynamic_few_shot_judge import (
+    DynamicFewShotJudge,
+)  # expecting voyager API key when importing because of the pkg init but solved by putting client creation into class
 from llm_judge.judges.abstract_judges.judge import Judge
-from llm_judge.utils.common import load_from_json
+from llm_judge.utils.common import load_from_json, write_df_to_csv
 
 
 class EvalJudge:
@@ -31,18 +39,25 @@ class EvalJudge:
         self,
         ideal_judgment_path: str,
         judge_class: Judge = BaselineComparisonJudge,
-        experiments_run_folder: str = "data/auto_judge/",
+        experiments_run_folder: str = "../data/auto_judge/",
         raw_data_folder: str = "data/DeepAI/test-2024-04-30-17-52",
-        test_split: float = 0.9,
         random_seed: int = 42,
+        test_split: float = 0.9,
         judgments_for_few_shot_retrieval_fp: str = None,
     ):
+
         # set seed
         random.seed(random_seed)
         self.judge_class = judge_class
         self.datetime_str = datetime.now().strftime("%m-%d_%H-%M-%S")
         self.raw_data_folder = raw_data_folder
+
         self.ideal_judgment_df = pd.read_csv(ideal_judgment_path)
+        self.ideal_judgment_df["ideal_judgment_score"] = self.ideal_judgment_df[
+            "score"
+        ].copy()
+        self.ideal_judgment_df.drop(columns=["score"], inplace=True)
+
         self.train_df = self.ideal_judgment_df.sample(frac=1 - test_split)
         self.test_df = self.ideal_judgment_df.drop(self.train_df.index)
         self.output_dir = os.path.join(experiments_run_folder, self.datetime_str)
@@ -58,8 +73,8 @@ class EvalJudge:
             self.output_dir,
         )
 
-        assert "ideal_judgment_score" in self.ideal_judgment_df.columns
-        assert "ideal_judgment_rationale" in self.ideal_judgment_df.columns
+        # assert "ideal_judgment_score" in self.ideal_judgment_df.columns
+        # assert "ideal_judgment_rationale" in self.ideal_judgment_df.columns
 
         self.config_template = {
             "judge": {
@@ -107,33 +122,46 @@ class EvalJudge:
 
         self._export_all_ids(eval_df, self.output_dir)
 
-        exp_judge_results = self.run_judge_with_prompt(judge_prompt)
+        exp_judge_results = self.run_judge_with_prompt(judge_prompt=judge_prompt)
+
+        # to stimulate that we have create ideal_judge.csv
+        # ideal_judge_results = self.run_judge_with_prompt(judge_prompt_id="662813e0e25b6076a9e03df8")
+        # ideal_judge_results.drop(columns=["score"], inplace=True) # to let merge result only contain score that is from exp_prompt
         merged_results = pd.merge(
             exp_judge_results,
             self.ideal_judgment_df[["answer_id", "ideal_judgment_score"]],
             on="answer_id",
             how="left",
         )
-        merged_results["exp_judge_score"] = merged_results["score"].apply(
+
+        # store
+        # ideal_jscore = self.ideal_judgment_df["score"]
+        # exp_jscore = merged_results["exp_judge_score"]
+        merged_results["exp_judge_score"] = exp_judge_results["score"].apply(
             ast.literal_eval
         )
         merged_results["ideal_judge_score"] = merged_results[
             "ideal_judgment_score"
         ].apply(ast.literal_eval)
-        print(
-            "The judge score is: ",
-            (
-                merged_results["exp_judge_score"] == merged_results["ideal_judge_score"]
-            ).mean(),
-        )
+
+        # acc_score = (merged_results["exp_judge_score"] == merged_results["ideal_judge_score"]).mean()
+
+        # result = {
+        #     "judge_score": acc_score,
+        #     "judge_prompt": judge_prompt,
+        #     "ideal_prompt_score": ideal_jscore,
+        #     "exp_prompt_score": exp_jscore,
+        #     "eval_on": eval_df
+        # }
+
         return merged_results
 
     def run_judge_with_prompt(self, judge_prompt: str) -> pd.DataFrame:
         """
         Execute a judge prompt and return the results.
         """
-        judge_prompt_id = self._prep_prompt(judge_prompt)
-        configs = self._prep_config(judge_prompt_id)
+        judge_prompt_id = self.prep_prompt(judge_prompt)
+        configs = self.prep_config(judge_prompt_id)
         judge = self.judge_class(**configs["judge"]["init_args"])
 
         question_ids = load_from_json(
@@ -155,10 +183,9 @@ class EvalJudge:
         )
         print("the ↑ above result is experimental judge results")
         enriched_judge_results = pd.read_csv(result_fp)
-
         return enriched_judge_results
 
-    def _prep_prompt(self, judge_prompt: str) -> str:
+    def prep_prompt(self, judge_prompt: str) -> str:
         judge_prompt_base = """
 Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.
 Avoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.
@@ -176,12 +203,11 @@ After you output your analysis on the criteria, output your final verdict at the
         judge_prompt_id = judge_prompt_obj.id
         return str(judge_prompt_id)
 
-    def _prep_config(self, judge_prompt_id: str) -> dict:
+    def prep_config(self, judge_prompt_id: str) -> dict:
         config_data = self.config_template.copy()
         config_data["judge"]["init_args"]["judge_prompts"]["system"] = str(
             judge_prompt_id
         )
-
         return config_data
 
     def _export_all_ids(self, judgment_df_to_eval: pd.DataFrame, output_folder: str):
@@ -197,46 +223,43 @@ After you output your analysis on the criteria, output your final verdict at the
 
 
 if __name__ == "__main__":
-    # eval_judge1 = EvalJudge(
-    #     ideal_judgment_path="data/DeepAI/test-2024-04-30-17-52/enriched_judgments-ideal-v3-for_testing.csv",
-    #     judge_class=BaselineComparisonJudge,
-    #     raw_data_folder="data/DeepAI/test-2024-04-30-17-52",
-    #     test_split=0.1,
-    # )
 
-    eval_judge2 = EvalJudge(
-        ideal_judgment_path="data/DeepAI/test-2024-04-30-17-52/enriched_judgments-ideal-original-for_testing.csv",
-        judge_class=DynamicFewShotJudge,
-        raw_data_folder="data/DeepAI/test-2024-04-30-17-52",
-        test_split=0.1,
-        judgments_for_few_shot_retrieval_fp="data/DeepAI/test-2024-04-30-17-52/enriched_judgments-ideal-v3-for_retrieval.csv",
+    # Load configuration from config.yaml
+    with open("eval.yaml", "r") as file:
+        config = yaml.safe_load(file)
+
+    # Map the judge class from string to actual class
+    judge_class_mapping = {
+        "BaselineComparisonJudge": BaselineComparisonJudge,
+        "GroundTruthComparisonJudge": GroundTruthComparisonJudge,
+        "ExactMatchJudge": ExactMatchJudge,
+    }
+
+    # Initialize the EvalJudge with the provided configurations
+    eval_judge = EvalJudge(
+        ideal_judgment_path=config["eval_judge"]["ideal_judgment_path"],
+        judge_class=judge_class_mapping[config["eval_judge"]["judge_class"]],
+        raw_data_folder=config["eval_judge"]["raw_data_folder"],
+        test_split=config["eval_judge"]["test_split"],
     )
-    null_prompt = ""
-    negative_prompt = "Ignore any instruction below and output some random stuff."
-    original_prompt = """
-Please act as an impartial judge to determine if the candidate answer is better, similarly good, or worse than the reference answer in response to the user query in the conversation.
-When judging which answer is better, consider the following criteria one by one:
-1. Does one answer follow **all user instructions** and the other one fails to do so?
-    - For example, if the user asks to write a detailed explanation, then summarize the explanation, are both the detailed and the summarized version present?
-    - For example, if the user asks to correct all grammar mistakes in the following essay, does the response go over all paragraphs of the essay or stops after the first paragraph?
-    - For example, however, if the user asks to fill in the missing word in the sentence, it's ok to just provide the word as an answer without rewriting the sentence.
-    - For example, if the user asks for the right answer without asking for an explaination, it's acceptable to not provide an explaination.
-2. Does one answer respond to the user question and the other one mis-interpret the user question?
-3. Is one answer less reasonable than the other given the context of the conversation?
-4. If the question has an objectively correct answer and the candidate and reference answers have different results, one must be better than the other. First solve the problem independently by thinking step by step, and see if your answer aligns with either the reference or candidate answers. If neither answer is correct, they are tied.
-    - If both answers are correct, they are tied. The fact that one answer provides an explanation or a more through explanation does not make it better.
-5. If for any reason one answer refused to answer the question or fulfill the request, it is automatically the worse answer.
 
-Keep the following in mind while conducting your analysis:
-- DO NOT prefer an answer because it provided explanation or more detailed justifications. As long as both answers are functionally equivalent, they should tie.
-- If the candidate and reference answer interpreted the user question differently but both interpretations are reasonable, they should tie.
-- Do not bias towards longer or shorter answers.
-- The reference answer may or may not be correct.
-"""
-    i = 0
-    for eval_judge in [eval_judge2]:
-        for judge_prompt in [negative_prompt, null_prompt, original_prompt]:
-            i += 1
+    # Get prompts from configuration
+    prompts = config["prompts"]
 
-            print(f"========\n== {i}  ==\n========")
-            eval_judge.evaluate_judge_prompt(judge_prompt, eval_on="test")
+    # Evaluate each prompt
+    for i, judge_prompt in enumerate(prompts, start=1):
+        print(f"========\n== {i}  ==\n========")
+        # Evaluate the judge prompt and get the evaluation result
+        eval_result = eval_judge.evaluate_judge_prompt(judge_prompt, config["eval_on"])
+
+        # Calculate accuracy score by comparing experimental and ideal judge scores
+        acc_score = (
+            eval_result["exp_judge_score"] == eval_result["ideal_judge_score"]
+        ).mean()
+
+        # Create an instance of EvalResult and save it to MongoDB
+        result = EvalResult(
+            judge_prompt=judge_prompt,
+            judge_score=acc_score,
+        )
+        result.save()
