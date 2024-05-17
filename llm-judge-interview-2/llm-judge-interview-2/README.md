@@ -1,0 +1,138 @@
+# LLM Judge (needs to be rewritten)
+LLM Judge is a set of scripts and a visualization tool to analyze the outputs of several LLMs across a set of prompts. The following functions are available:
+* Generate outputs at different temperatures.
+* Generate winner labels for each LLM output by comparing it to ground truth. The system generates the following labels:
+  * Candidate: LLM did a better job than the ground truth.
+  * Ground Truth: Ground Truth did a better job than the LLM.
+  * Tie: Both ground truth and LLM output are similar.
+  * Unsure: This is seen when a huge LLM compares ground truth with the LLM output. It shows the variance in outputs for the same inputs primarily attributed to position bias. 
+* Select different subsets of completions by selecting winner labels and LLMs. 
+* Deep dive into individual completions and review:
+  * Prompts
+  * Completions
+  * Ground truth
+  * Winner Labels
+  * Commentary on why the winner label was chosen. 
+* Summary charts describing:
+  * Individual LLM Performance calculated by using winner labels.
+  * Oracle LLM performance is calculated by using winner labels.
+  * Cost vs Performance charts.
+  * Configuration on what winner labels across different LLMs can be considered as true positives. 
+* Highly flexible
+  * Implement custom PromptGenerator modules
+  * Implement custom LLMJudge modules
+
+# How to use the LLM Judge
+## Step 1: Installation
+Create a conda environment with Python 3.11
+```
+conda create --name llm-judge python=3.11
+```
+Activate this environment.
+```
+conda activate llm-judge
+```
+Clone this repo.
+```
+cd ..
+git clone -b https://github.com/withmartian/llm-judge.git 
+```
+Go inside the llm-judge repo and clone the Adapters package locally.
+```
+cd llm-judge
+git clone https://github.com/withmartian/adapters.git
+```
+Go into the adapter's package and install it.
+```
+cd adapters
+pip install poetry
+poetry install
+cd ..
+```
+Go inside the llm-judge directory and update the environment with project dependencies.
+
+**If you have changed the name of the conda environment, please update it in the environment.yaml file.**
+```
+conda env update --file environment.yaml
+```
+Add a `.env` file at the root directory. The `.env` file should include the following information in addition to any API providers you intend to use directly or through adapters.
+
+**USE COMPANY KEYS OTHERWISE YOU WIL GET RATE LIMITED**
+```
+OPENAI_API_KEY=<OpenAI API Token>
+ANTHROPIC_API_KEY=<Anthropic API Token>
+MONGO_URI = "mongodb+srv://martian-user:p3ltlA9ILlX2jgIg@atlascluster.wh6g5zs.mongodb.net/"
+MARTIAN_MONGO_URI = "<martian mongo uri>"
+```
+Install pre-commit. To run pre-commit manually, run `pre-commit run --all-files`
+```
+pre-commit install
+```
+Finally, install the llm_judge package.
+```
+pip install -e .
+```
+## Step 2: Understanding the gen_question, gen_answer, and gen_judgments configurations
+All configurations that we use in an experiment lies in the yaml files in `scripts/configs`. When we run the experiments, the yaml files will be copied to the output folder to keep track of the setup of each experiment. 
+
+**shared params by all 3 yaml files**
+* `printout_limit`: specifies how many examples of questions, answers, and judgments each is serialized in a readable form in a CSV file.
+* `num_workers`: specifies the max_workers in `ProcesspoolExecutor`, aka the maximum number of parallel threads to run the generations of questions, answers, and judgments
+* `seed`: sets the seed for the `random` module used to shuffle data
+* `output_dir`: the experiment folder that the current script will refer to for previous outputs as well as saving new outputs. For example, when running `gen_answers.py`, it will read from the folder to get a list of questions to generate answers for, and save the generated answer_ids in the folder. Using output_dir will overwrite files of the same name in the provided dir.
+* `--output_enriched`: if specified, the output will be enriched with the serialized version of the objects (e.g. question, answer, judgment) instead of just the ids. This is useful for debugging and understanding the outputs.
+  
+**gen_questions.yaml**
+* `question_generator`: it is a class injection of a QuestionGenerator class. Implement a custom question generator that inherits the abstract class `llm_judge.question_generator.QuestionGenerator` or use the existing question generator `TransactionQuestionGenerator` that turns exported json file from the logged Mongodb transactions to a list of `Question`s. Pass in the class init args as specified.
+* `classifiers`: include this arg if you want to classify the questions. Make sure to implement one or more classifier classes that inherit from the abstract class `llm_judge.classifiers.Classifier`.
+* `ground_truth_params` and `ground_truth_aggregator_params`: include both args if you want to generate the ground truth for a question. The ground truth is generated by inferencing with the models & parameters specified in `ground_truth_params` then majority vote via the model & parameters specified in `ground_truth_aggregator_params`. We recomment only generating ground truths for a question if the question is objective.
+* `wanted_classes`: filters out questions in a specific class classified by the classifier to be saved.
+* `existing_question_fp`: if specified, we use the questions in a previous experiment in addition to adding in new questions generated by the `QuestionGenerator`
+* Either provide both `base_dir` and `experiment_name` to create a new experiment folder to save all outputs (recommended) or provide an `output_dir` to use the existing experiment folder. 
+
+**gen_answers.yaml**
+* `llm_params`: specifies the llm names and the parameters (temperature, max_tokens, etc) to generate answers for each question. Include prompt_modification arg if you want to modify the prompt when you generate an answer.
+* `N`: specifies how many times to generate an answer for each llm and params combo specified in `llm_params`
+
+**gen_judgments.yaml**
+* `judge`: specifies path to the custom judge class, which all inherits from `judges.Judge`. Feel free to implement your own judge or use the defualt `judges.BaselineComparisonJudge`
+* `N`: specifies how many times to generate each judgment
+
+## Step 3: Generating Questions, Answers, and Judgments
+After editing the yaml files, run this command to generate questions:
+```
+python scripts/gen_questions.py --config scripts/configs/gen_questions.yaml
+```
+Change the output_dir arg of `gen_answers.yaml` and `gen_judgments.yaml` and run
+```
+python scripts/gen_answers.py --config scripts/configs/gen_answers.yaml
+```
+and
+```
+python scripts/gen_judgments.py --config scripts/configs/gen_judgments.yaml
+```
+
+If you want to dump questions from a MongoDB transaction log, you can get them by running:
+```bash
+python scripts/dump_martian_db.py --config scripts/configs/dump_martian_db.yaml
+```
+
+Note: make sure to set the `MARTIAN_MONGO_URI` to the correct URI in the `.env` file to pull data from (not the one used for caching data)
+
+## Step 4: Inspecting Ouptuts
+A list of question ids, answer ids, and judgment ids should be saved in the `output_dir`. Up to `printout_limits` number of examples for question, answer, judgment should be saved in csv files. 
+`sample_combined.csv` should display useful information for each judgments (instead of answer_ids and question_ids, we print out the serialized version of the answer and question objects)
+
+
+# FAQ
+### What should this tool be used for?
+**THIS IS BETTER THAN GENERATING A BUNCH OF OUTPUTS AND DOING A RANDOM REVIEW. BUT ITS NOT PERFECT** 
+
+You can use this tool to understand the performance trends of different LLMs on your set of prompts. Subsequently, you can use the understanding of trends to develop a labeling strategy to craft weakly labeled noisy supervised learning data for training a custom router. 
+
+How much you should trust the winner labels depends on your judgment implementation. For example, using an explicit judgment scheme like running an LLM-generated SQL query and comparing it against golden data is 100% trustworthy. However, judgments generated by GPT 4 by comparing ground truth vs. LLM output will require exploring the datasets and developing your intuition. 
+
+### How does restarting interrupted runs work?
+All generated questions, answers, and judgments are saved in the DB immediately. We always check if the object exists in the DB before generating again, thus resumption of interrupted experiments is trivial by simply rerunning the script. 
+
+

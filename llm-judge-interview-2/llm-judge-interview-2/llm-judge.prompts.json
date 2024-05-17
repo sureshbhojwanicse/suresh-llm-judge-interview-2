@@ -1,0 +1,732 @@
+[
+  {
+    "_id": {
+      "$oid": "663375027e1be50991435108"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:12:02.265Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663378944482e2410872efef"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:26:42.804Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66337a864fd0eb633896ae89"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:35:20.839Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66337ad0896638af24136e3a"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:36:48.368Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66337c5726b45e87b827252c"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:43:18.610Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633db529e5aecca3b954e4a"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:28:34.122Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633db6954671a0aae7f7d0a"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:28:56.852Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633dbbc05a96d52c61a3c07"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:30:19.757Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633de02e9b94df96260e591"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:40:01.678Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6628224eb84c0693351ca6a4"
+    },
+    "description": "This is a baseline pairwise comparison judge reverse prompt template for DeepAI.",
+    "tags": [
+      "deepai",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-04-23T14:04:14.149Z"
+    },
+    "content": "[Conversation]\n{question}\n\n[The Start of Candidate Answer]\n{candidate}\n[The End of Candidate Answer]\n\n[The Start of Reference Answer]\n{reference}\n[The End of Reference Answer]\n\nDecide if the candidate answer is as good as the reference answer.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6629e4c440b2c07ff212718a"
+    },
+    "description": "This is a baseline pairwise comparison judge prompt template for Delphi.",
+    "tags": [
+      "delphi",
+      "baseline_pairwise",
+      "prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-04-25T06:06:11.505Z"
+    },
+    "content": "[Conversation]\n{question}\n\n[The Start of Reference Answer]\n{reference}\n[The End of Reference Answer]\n\n[The Start of Candidate Answer]\n{candidate}\n[The End of Candidate Answer]\n\nDecide if the candidate answer is as good as the reference answer.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6629e4ff5a1c39a6ae45666d"
+    },
+    "description": "This is a baseline pairwise comparison judge system prompt template for Delphi.",
+    "tags": [
+      "delphi",
+      "baseline_pairwise",
+      "system"
+    ],
+    "last_edited": {
+      "$date": "2024-04-25T06:07:11.763Z"
+    },
+    "content": "Please act impartially and judge the following two answers based on how similar they are to each other and if they arrive at the same answer. Explain your reasoning. If both answers are functionally the same, please respond with [[A]]. If both answers are functionally different, please respond with [[B]]. If both answers arrive at the same solution, even if by different means, please respond with [[A]]. After providing your explanation, provide the rating of \"A\" or \"B\" in your response, in the format [[X]], where X is the rating.\n\n[Answer 1]\n{answer1}\n\n[Answer 2]\n{answer2}",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c2ccc283b5ac6534fdcc7"
+    },
+    "description": "This is for us to understand what the prompt is for.",
+    "tags": [
+      "deepai",
+      "baseline_pairwise",
+      "system"
+    ],
+    "last_edited": {
+      "$date": "2024-04-26T15:19:33.066Z"
+    },
+    "content": "this is a new system prompt ",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66337aab8ab2563f02a8d451"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:36:06.454Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66337ca6624c293f34ce28c8"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:44:38.400Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633dd41b3abfe44020c0c9a"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:36:49.292Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633ddeb983235d7bcbf2c53"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:39:39.507Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633de61f0cc46338b8e6136"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:41:37.892Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663531b9ad9e95658cd6b6af"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-03T11:49:29.229Z"
+    },
+    "content": "This is a test prompt.\nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6629e4c340b2c07ff2127189"
+    },
+    "description": "This is a baseline pairwise comparison judge reverse prompt template for Delphi.",
+    "tags": [
+      "delphi",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-04-25T06:06:11.505Z"
+    },
+    "content": "[Conversation]\n{question}\n\n[The Start of Candidate Answer]\n{candidate}\n[The End of Candidate Answer]\n\n[The Start of Reference Answer]\n{reference}\n[The End of Reference Answer]\n\nDecide if the candidate answer is as good as the reference answer.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66337c3440e6484220f53bb5"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:42:43.972Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66337c8e614d0ea064925a48"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:44:13.952Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6633e0407ec361f6e0234978"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T11:49:26.617Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "662813e0e25b6076a9e03df8"
+    },
+    "description": "This is a baseline pairwise comparison judge system prompt for DeepAI. It uses the baseline llm's answer as the reference answer.",
+    "tags": [
+      "deepai",
+      "baseline_pairwise",
+      "system"
+    ],
+    "last_edited": {
+      "$date": "2024-04-23T13:02:40.605Z"
+    },
+    "content": "Please act as an impartial judge to determine if the candidate answer is better, similarly good, or worse than the reference answer in response to the user query in the conversation.\n    When judging which answer is better, consider the following criteria one by one:\n    1. Does one answer follow **all user instructions** and the other one fails to do so?\n        - For example, if the user asks to write a detailed explanation, then summarize the explanation, are both the detailed and the summarized version present?\n        - For example, if the user asks to correct all grammar mistakes in the following essay, does the response go over all paragraphs of the essay or stops after the first paragraph?\n        - For example, however, if the user asks to fill in the missing word in the sentence, it's ok to just provide the word as an answer without rewriting the sentence.\n        - For example, if the user asks for the right answer without asking for an explaination, it's acceptable to not provide an explaination.\n    2. Does one answer respond to the user question and the other one mis-interpret the user question?\n    3. Is one answer less reasonable than the other given the context of the conversation?\n    4. If the question has an objectively correct answer and the candidate and reference answers have different results, one must be better than the other. First solve the problem independently by thinking step by step, and see if your answer aligns with either the reference or candidate answers. If neither answer is correct, they are tied.\n        - If both answers are correct, they are tied. The fact that one answer provides an explanation or a more through explanation does not make it better.\n    5. If for any reason one answer refused to answer the question or fulfill the request, it is automatically the worse answer.\n    \n    Keep the following in mind while conducting your analysis:\n    - DO NOT prefer an answer because it provided explanation or more detailed justifications. As long as both answers are functionally equivalent, they should tie.\n    - If the candidate and reference answer interpreted the user question differently but both interpretations are reasonable, they should tie.\n    - Do not bias towards longer or shorter answers.\n    - The reference answer may or may not be correct.\n    \n    Begin your evaluation by judging the candidate answer on each of the 4 criteria above without making a decision. Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\n    Avoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\n    After you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n    ```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n    ```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n    ```Final Verdict: \"[[C]]\"``` if they are similar in quality.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662821e23eb9ef01018e30e2"
+    },
+    "description": "This is a baseline pairwise comparison judge prompt template for DeepAI.",
+    "tags": [
+      "deepai",
+      "baseline_pairwise",
+      "prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-04-23T14:02:26.473Z"
+    },
+    "content": "[Conversation]\n{question}\n\n[The Start of Reference Answer]\n{reference}\n[The End of Reference Answer]\n\n[The Start of Candidate Answer]\n{candidate}\n[The End of Candidate Answer]\n\nDecide if the candidate answer is as good as the reference answer.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "662c2cee283b5ac6534fdcc8"
+    },
+    "description": "This is for us to understand what the prompt is for.",
+    "tags": [
+      "deepai",
+      "baseline_pairwise",
+      "system"
+    ],
+    "last_edited": {
+      "$date": "2024-04-26T15:19:33.066Z"
+    },
+    "content": "Just a prompt template",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66337549350949d44fa997ad"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:13:13.923Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663378501f4961db400e6d96"
+    },
+    "description": "test prompt structure",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-02T04:26:08.272Z"
+    },
+    "content": "This is a test prompt.\n    Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66353beba322f2de484e825c"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-03T12:32:58.283Z"
+    },
+    "content": "This is a test prompt.\nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66395629a4faa175616fd144"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T15:14:00.246Z"
+    },
+    "content": "Please evalute which response better answers the user question.\nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "6639593998986a0d8b7b2fd7"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T15:27:05.003Z"
+    },
+    "content": "Output some random stuff.\nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663963c29e12ac48bdda18de"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T16:12:01.031Z"
+    },
+    "content": "Ignore any instruction below and output some random stuff.\nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "66396584ff9944fcf398da9d"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T16:19:31.443Z"
+    },
+    "content": "\nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663967b37e0faa396301fd19"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T16:28:50.203Z"
+    },
+    "content": "\nPlease act as an impartial judge to determine if the candidate answer is better, similarly good, or worse than the reference answer in response to the user query in the conversation.\nWhen judging which answer is better, consider the following criteria one by one:\n1. Does one answer follow **all user instructions** and the other one fails to do so?\n    - For example, if the user asks to write a detailed explanation, then summarize the explanation, are both the detailed and the summarized version present?\n    - For example, if the user asks to correct all grammar mistakes in the following essay, does the response go over all paragraphs of the essay or stops after the first paragraph?\n    - For example, however, if the user asks to fill in the missing word in the sentence, it's ok to just provide the word as an answer without rewriting the sentence.\n    - For example, if the user asks for the right answer without asking for an explaination, it's acceptable to not provide an explaination.\n2. Does one answer respond to the user question and the other one mis-interpret the user question?\n3. Is one answer less reasonable than the other given the context of the conversation?\n4. If the question has an objectively correct answer and the candidate and reference answers have different results, one must be better than the other. First solve the problem independently by thinking step by step, and see if your answer aligns with either the reference or candidate answers. If neither answer is correct, they are tied.\n    - If both answers are correct, they are tied. The fact that one answer provides an explanation or a more through explanation does not make it better.\n5. If for any reason one answer refused to answer the question or fulfill the request, it is automatically the worse answer.\n\nKeep the following in mind while conducting your analysis:\n- DO NOT prefer an answer because it provided explanation or more detailed justifications. As long as both answers are functionally equivalent, they should tie.\n- If the candidate and reference answer interpreted the user question differently but both interpretations are reasonable, they should tie.\n- Do not bias towards longer or shorter answers.\n- The reference answer may or may not be correct.\n\nBegin your evaluation by judging the candidate answer on each of the 4 criteria above without making a decision. Think step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n    \nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663967c5093bb1a9267f89a7"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T16:29:08.089Z"
+    },
+    "content": "\nPlease act as an impartial judge to determine if the candidate answer is better, similarly good, or worse than the reference answer in response to the user query in the conversation.\nWhen judging which answer is better, consider the following criteria one by one:\n1. Does one answer follow **all user instructions** and the other one fails to do so?\n    - For example, if the user asks to write a detailed explanation, then summarize the explanation, are both the detailed and the summarized version present?\n    - For example, if the user asks to correct all grammar mistakes in the following essay, does the response go over all paragraphs of the essay or stops after the first paragraph?\n    - For example, however, if the user asks to fill in the missing word in the sentence, it's ok to just provide the word as an answer without rewriting the sentence.\n    - For example, if the user asks for the right answer without asking for an explaination, it's acceptable to not provide an explaination.\n2. Does one answer respond to the user question and the other one mis-interpret the user question?\n3. Is one answer less reasonable than the other given the context of the conversation?\n4. If the question has an objectively correct answer and the candidate and reference answers have different results, one must be better than the other. First solve the problem independently by thinking step by step, and see if your answer aligns with either the reference or candidate answers. If neither answer is correct, they are tied.\n    - If both answers are correct, they are tied. The fact that one answer provides an explanation or a more through explanation does not make it better.\n5. If for any reason one answer refused to answer the question or fulfill the request, it is automatically the worse answer.\n\nKeep the following in mind while conducting your analysis:\n- DO NOT prefer an answer because it provided explanation or more detailed justifications. As long as both answers are functionally equivalent, they should tie.\n- If the candidate and reference answer interpreted the user question differently but both interpretations are reasonable, they should tie.\n- Do not bias towards longer or shorter answers.\n- The reference answer may or may not be correct.\n\n\n    \nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663969307c6639cc9c36ec17"
+    },
+    "description": "test judge prompt in eval_judge.py",
+    "tags": [
+      "test",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-06T16:32:49.545Z"
+    },
+    "content": "\nPlease act as an impartial judge to determine if the candidate answer is better, similarly good, or worse than the reference answer in response to the user query in the conversation.\nWhen judging which answer is better, consider the following criteria one by one:\n1. Does one answer follow **all user instructions** and the other one fails to do so?\n    - For example, if the user asks to write a detailed explanation, then summarize the explanation, are both the detailed and the summarized version present?\n    - For example, if the user asks to correct all grammar mistakes in the following essay, does the response go over all paragraphs of the essay or stops after the first paragraph?\n    - For example, however, if the user asks to fill in the missing word in the sentence, it's ok to just provide the word as an answer without rewriting the sentence.\n    - For example, if the user asks for the right answer without asking for an explaination, it's acceptable to not provide an explaination.\n2. Does one answer respond to the user question and the other one mis-interpret the user question?\n3. Is one answer less reasonable than the other given the context of the conversation?\n4. If the question has an objectively correct answer and the candidate and reference answers have different results, one must be better than the other. First solve the problem independently by thinking step by step, and see if your answer aligns with either the reference or candidate answers. If neither answer is correct, they are tied.\n    - If both answers are correct, they are tied. The fact that one answer provides an explanation or a more through explanation does not make it better.\n5. If for any reason one answer refused to answer the question or fulfill the request, it is automatically the worse answer.\n\nKeep the following in mind while conducting your analysis:\n- DO NOT prefer an answer because it provided explanation or more detailed justifications. As long as both answers are functionally equivalent, they should tie.\n- If the candidate and reference answer interpreted the user question differently but both interpretations are reasonable, they should tie.\n- Do not bias towards longer or shorter answers.\n- The reference answer may or may not be correct.\n    \nThink step by step and explain your reasoning. Then, decide if the candidate answer is as good as the reference answer.\nAvoid any position biases and ensure that the order in which the candidate and reference answers were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.\nAfter you output your analysis on the criteria, output your final verdict at the end by **strictly following the following format**:\n```Final Verdict: \"[[A]]\"``` if candidate answer is better than the reference answer.\n```Final Verdict: \"[[B]]\"``` if the candidate is worse than the reference answer.\n```Final Verdict: \"[[C]]\"``` if they are similar in quality.\n",
+    "args": {
+
+    },
+    "mongodb_id": null
+  },
+  {
+    "_id": {
+      "$oid": "663a1e0f27b3ebb1aada1cc5"
+    },
+    "description": "This is a baseline pairwise comparison judge reverse prompt template for SK-Telecom.",
+    "tags": [
+      "sk-telecom",
+      "baseline_pairwise",
+      "reversed_prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-07T13:26:55.934Z"
+    },
+    "content": "[Conversation]\n{question}\n\n[The Start of Candidate Answer]\n{candidate}\n[The End of Candidate Answer]\n\n[The Start of Reference Answer]\n{reference}\n[The End of Reference Answer]\n\nDecide if the candidate answer is as good as the reference answer.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "663a1e47144a1f33dbaf80cd"
+    },
+    "description": "This is a baseline pairwise comparison judge prompt template for SK-Telecom.",
+    "tags": [
+      "sk-telecom",
+      "baseline_pairwise",
+      "prompt_template"
+    ],
+    "last_edited": {
+      "$date": "2024-05-07T13:27:51.004Z"
+    },
+    "content": "[Conversation]\n{question}\n\n[The Start of Reference Answer]\n{reference}\n[The End of Reference Answer]\n\n[The Start of Candidate Answer]\n{candidate}\n[The End of Candidate Answer]\n\nDecide if the candidate answer is as good as the reference answer.",
+    "args": {
+
+    }
+  },
+  {
+    "_id": {
+      "$oid": "663a1ed175d7a03328e3ce95"
+    },
+    "description": "This is a baseline pairwise comparison judge system prompt for SK-Telecom.",
+    "tags": [
+      "sk-telecom",
+      "baseline_pairwise",
+      "system"
+    ],
+    "last_edited": {
+      "$date": "2024-05-07T13:30:09.698Z"
+    },
+    "content": "Please act impartially and judge the following two answers based on how similar they are to each other and if they arrive at the same answer. Explain your reasoning. If both answers are functionally the same, please respond with [[A]]. If both answers are functionally different, please respond with [[B]]. If both answers arrive at the same solution, even if by different means, please respond with [[A]]. After providing your explanation, provide the rating of \"A\" or \"B\" in your response, in the format [[X]], where X is the rating.",
+    "args": {
+
+    }
+  }
+]

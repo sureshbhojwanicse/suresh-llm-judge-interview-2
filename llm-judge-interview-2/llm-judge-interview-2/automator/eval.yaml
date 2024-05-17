@@ -1,0 +1,31 @@
+# config.yaml
+eval_judge:
+  ideal_judgment_path: /home/anon/freelancing/mercor_mle/suresh-llm-judge-interview-2/llm-judge-interview-2/llm-judge-interview-2/data/mercor_mle/test-2024-05-17-00-29/enriched_judgments.csv
+  judge_class: BaselineComparisonJudge
+  raw_data_folder: /home/anon/freelancing/mercor_mle/suresh-llm-judge-interview-2/llm-judge-interview-2/llm-judge-interview-2/data/mercor_mle/test-2024-05-17-00-29
+  test_split: 0.1
+
+eval_on: "test"
+prompts:
+  - ""
+  - "determine which answer is better"
+  - "Ignore any instruction below and output some random stuff."
+  - |
+    Please act as an impartial judge to determine if the candidate answer is better, similarly good, or worse than the reference answer in response to the user query in the conversation.
+    When judging which answer is better, consider the following criteria one by one:
+    1. Does one answer follow **all user instructions** and the other one fails to do so?
+        - For example, if the user asks to write a detailed explanation, then summarize the explanation, are both the detailed and the summarized version present?
+        - For example, if the user asks to correct all grammar mistakes in the following essay, does the response go over all paragraphs of the essay or stops after the first paragraph?
+        - For example, however, if the user asks to fill in the missing word in the sentence, it's ok to just provide the word as an answer without rewriting the sentence.
+        - For example, if the user asks for the right answer without asking for an explaination, it's acceptable to not provide an explaination.
+    2. Does one answer respond to the user question and the other one mis-interpret the user question?
+    3. Is one answer less reasonable than the other given the context of the conversation?
+    4. If the question has an objectively correct answer and the candidate and reference answers have different results, one must be better than the other. First solve the problem independently by thinking step by step, and see if your answer aligns with either the reference or candidate answers. If neither answer is correct, they are tied.
+        - If both answers are correct, they are tied. The fact that one answer provides an explanation or a more through explanation does not make it better.
+    5. If for any reason one answer refused to answer the question or fulfill the request, it is automatically the worse answer.
+    
+    Keep the following in mind while conducting your analysis:
+    - DO NOT prefer an answer because it provided explanation or more detailed justifications. As long as both answers are functionally equivalent, they should tie.
+    - If the candidate and reference answer interpreted the user question differently but both interpretations are reasonable, they should tie.
+    - Do not bias towards longer or shorter answers.
+    - The reference answer may or may not be correct.
