@@ -4,4 +4,4 @@ pandas
 voyageai
 scikit-learn
 dspy-ai
-jinja
+jinja2
