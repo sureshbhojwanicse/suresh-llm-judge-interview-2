@@ -1,13 +1,16 @@
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 from pymongo.server_api import ServerApi
 from pymongo import MongoClient
 from pymongo.database import Database
+from ..utils.mongoimport import convert_mongo_json
+import json
+from pathlib import Path
 
 DATABASE_NAME = "llm-judge"
-COLLECTIONS = {"questions", "answers", "judgments", "prompts"}
+COLLECTIONS = {"questions", "answers", "judgments", "prompts", "evals"}
 
-load_dotenv("./.env", override=True)
+load_dotenv(find_dotenv(), override=True)
 
 
 class DatabaseClient:
@@ -31,3 +34,16 @@ class DatabaseClient:
 
 
 DatabaseClient.connect()
+
+# Inserting the given prompt json into db for future querying.
+collection = DatabaseClient.get_collection("prompts")
+if not collection.count_documents({}) > 0:
+    data_path = Path(
+        "suresh-llm-judge-interview-2/llm-judge-interview-2/llm-judge-interview-2/raw_questions.json"
+    )
+    with open(data_path.absolute(), "r") as file:
+        data = json.load(file)
+    # Convert the JSON data to MongoDB compatible format
+    converted_data = [convert_mongo_json(record) for record in data]
+    # insert
+    collection.insert_many(converted_data)
