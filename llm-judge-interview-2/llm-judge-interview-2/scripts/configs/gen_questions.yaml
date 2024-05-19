@@ -1,31 +1,32 @@
 question_generator:
-  class_path: llm_judge.question_generator.TransactionQuestionGenerator
+  class_path: llm_judge.question_generator.ConvoJSONQuestionGenerator
   init_args:
-    data_path: /Users/amymartian/Projects/router-judge/data/deepai/test.json
-    num_samples: 4
+    data_path: /home/anon/freelancing/mercor_mle/suresh-llm-judge-interview-2/llm-judge-interview-2/llm-judge-interview-2/raw_questions.json
 
-classifiers:
-  - class_path: llm_judge.classifiers.ObjectivityClassifier
-    init_args:
-      model: gpt-4-turbo-preview
+    num_samples: 50
+    random_seed: 42
+
+classifiers: []
+  # - class_path: llm_judge.classifiers.ObjectivityClassifier
+  #   init_args:
+  #     model: gpt-4-turbo-preview
 
 ground_truth_params:
   - gpt-4-turbo-preview:
       temperature: 0.7
-      max_tokens: 1000
-  - gpt-4:
-      temperature: 0.7
-  - claude-3-opus-20240229:
-      temperature: 0.7
+      max_tokens: 1250
+#   - gpt-4:
+#       temperature: 0.7
+#   - claude-3-opus-20240229:
+#       temperature: 0.7
 
 ground_truth_aggregator_params:
   - gpt-4-turbo-preview:
         temperature: 0.7
-        max_tokens: 1000
+        max_tokens: 1500
 
-num_workers: 5
-wanted_classes: ["objective"]
+num_workers: 4
+wanted_classes: [] # objective
 printout_limit: 50
-# existing_question_fp: /Users/amymartian/Projects/router-judge/runs/deepAI/run-test-l5z3meyp/question_ids.json
-base_dir: /Users/amymartian/Projects/router-judge/runs/deepAI
-experiment_name: test
+base_dir: "../data/mercor_mle"
+experiment_name: TEST
