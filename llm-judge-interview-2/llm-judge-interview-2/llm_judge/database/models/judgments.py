@@ -54,6 +54,13 @@ class Judgment(MongoBaseModel):
         judgment_collection.insert_one(self.model_dump(by_alias=True))
         return self
 
+    # added this method to return a single judgement object given a single judgement id. used in training data preparation
+    @staticmethod
+    def get_judgment_by_id(judgment_id: str) -> "Judgment":
+        judgment_collection = DatabaseClient.get_collection("judgments")
+        judgment = judgment_collection.find_one({"_id": ObjectId(judgment_id)})
+        return Judgment(**judgment)
+
     @staticmethod
     def get_judgments_by_id(judgment_ids: list[str]) -> list["Judgment"]:
         judgment_collection = DatabaseClient.get_collection("judgments")

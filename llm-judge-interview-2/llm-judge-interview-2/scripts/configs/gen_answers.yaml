@@ -1,14 +1,14 @@
-output_dir: /Users/amymartian/Projects/router-judge/runs/deepAI/run-april24
+output_dir: /home/anon/freelancing/mercor_mle/llm-judge-interview-2/llm-judge-interview-2/data/mercor_mle/test-2024-05-14-21-11
 llm_params:
   - gpt-4-turbo-preview:
       temperature: 0.7
       max_tokens: 100
-  - gpt-3.5-turbo-0125:
-      temperature: 0.7
-      prompt_modification: {"cot": "Think step by step."}
+  # - gpt-3.5-turbo-0125:
+  #     temperature: 0.7
+  #     prompt_modification: {"cot": "Think step by step."}
   - gpt-3.5-turbo-0125:
       temperature: 0.7
 
 N: 1
-num_workers: 5
-printout_limit: 50
+num_workers: 4
+printout_limit: 100

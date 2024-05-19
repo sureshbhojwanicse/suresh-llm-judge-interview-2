@@ -1,12 +1,19 @@
 judge:
-  class_path: llm_judge.judges.BaselineComparisonJudge
+  class_path: llm_judge.judges.BaselineComparisonJudge # concrete_judges.dynamic_few_shot_judge.dynDynamicFewShotJudge
   init_args:
     baseline_llm: gpt-3.5-turbo-0125
-    judge_prompts: {"system": "662813e0e25b6076a9e03df8", "prompt_template": "662821e23eb9ef01018e30e2", "reversed_prompt_template": "6628224eb84c0693351ca6a4"}
+    judge_prompts:
+      system: 662813e0e25b6076a9e03df8 # <- This seems best # Old (662c2ccc283b5ac6534fdcc7)
+      prompt_template: 662821e23eb9ef01018e30e2 # This has no place holde. this is what we chose to be sys prompt 662813e0e25b6076a9e03df8
+      reversed_prompt_template: 6628224eb84c0693351ca6a4
+    
     judge_llm: gpt-4-turbo-preview
-    judge_llm_params: {"temperature": 0, "max_tokens": 1000}
+    judge_llm_params:
+      temperature: 0
+      max_tokens: 1000
 
 N: 1
-output_dir: /Users/amymartian/Projects/router-judge/runs/deepAI/run-april24
-num_workers: 50
-printout_limit: 50
+output_dir: /home/anon/freelancing/mercor_mle/llm-judge-interview-2/llm-judge-interview-2/data/mercor_mle/test-2024-05-14-21-11
+num_workers: 4
+printout_limit: 100
+output_enriched: true
