@@ -68,7 +68,9 @@ class ConvoJSONQuestionGenerator(BaseQuestionGenerator):
                     conversation_hash=gen_hash(stringify_conversation(conversation)),
                     # to be compatible with given data `raw_data.json`
                     ground_truth=(
-                        {"": list(ground_truth.values())[0]} if ground_truth else {}
+                        {list(ground_truth.keys())[0]: list(ground_truth.values())[0]}
+                        if ground_truth
+                        else {}
                     ),
                     args=self.get_args_from_entry(entry),
                 )
