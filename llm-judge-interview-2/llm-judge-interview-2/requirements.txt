@@ -1,0 +1,7 @@
+jsonargparse
+pymongo
+pandas
+voyageai
+scikit-learn
+dspy-ai
+jinja2
