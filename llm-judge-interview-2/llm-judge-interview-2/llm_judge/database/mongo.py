@@ -38,10 +38,8 @@ DatabaseClient.connect()
 # Inserting the given prompt json into db for future querying.
 collection = DatabaseClient.get_collection("prompts")
 if not collection.count_documents({}) > 0:
-    data_path = Path(
-        "suresh-llm-judge-interview-2/llm-judge-interview-2/llm-judge-interview-2/raw_questions.json"
-    )
-    with open(data_path.absolute(), "r") as file:
+    os_path = os.path.abspath("../llm-judge.prompts.json")
+    with open(os_path, "r") as file:
         data = json.load(file)
     # Convert the JSON data to MongoDB compatible format
     converted_data = [convert_mongo_json(record) for record in data]
