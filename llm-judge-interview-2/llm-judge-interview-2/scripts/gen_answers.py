@@ -107,10 +107,10 @@ def _gen_single_answer(answer: Answer, question: Question) -> Optional[Answer]:
     """
     Generate one answer for a given answer object and fill in the content and cost fields.
     """
-    adapter = AdapterFactory.get_adapter(answer.llm_id)
+    adapter = AdapterFactory.get_adapter_by_path(answer.llm_id)
 
     conversation = shorten_conversation(
-        question.conversation, adapter.get_context_length()
+        question.conversation, adapter.get_model().context_length
     )
     conversation = make_prompt_modification(conversation, answer.prompt_modification)
 

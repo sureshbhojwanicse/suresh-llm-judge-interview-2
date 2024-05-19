@@ -100,6 +100,7 @@ def gen_judgments(
     judgment_outputs: List[Judgment],
     num_workers: int,
 ) -> List[Judgment]:
+
     with ProcessPoolExecutor(max_workers=num_workers) as executor:
         for answer in tqdm(
             executor.map(judge.generate_single_judgment, judgment_worker_inputs),
@@ -151,7 +152,7 @@ def enrich_judgments(judgments: List[Judgment]) -> List[dict]:
         if judgment.comparison_answers:
             assert (
                 len(judgment.comparison_answers) == 1
-            ), "Multi-comparison not defined forenrich_judgments yet"
+            ), "Multi-comparison not defined for enrich_judgments yet"
             gt_obj = Answer.get_answer_by_id(judgment.comparison_answers[0])
             enriched_judgment["reference_answer"] = gt_obj.content
             enriched_judgment["reference_llm"] = gt_obj.llm_id
@@ -174,11 +175,13 @@ def main(
     printout_limit: int = 100,
     seed: int = 42,
     output_enriched: bool = False,
+    # write_ids_and_csv=True
 ) -> str:
     """
     This is the main function to generate judgments.
     Create judgments for a list of questions and answers, then use the given judge to generate judgments.
     """
+
     questions = Question.get_questions_by_id(question_ids)
     answers = Answer.get_answers_by_id(answer_ids)
     ground_truth_hash = get_ground_truth_hash(
@@ -192,19 +195,22 @@ def main(
 
     random.seed(seed)
     random.shuffle(judgment_outputs)
+    # if write_ids_and_csv:
     write_ids_to_json(judgment_outputs, os.path.join(output_dir, "judgment_ids.json"))
     write_to_csv(
         judgment_outputs[:printout_limit],
         os.path.join(output_dir, "sample_judgments.csv"),
     )
     if output_enriched:
-        enriched_output_dir = os.path.join(output_dir, "enriched_judgments")
+        enriched_output_path = os.path.join(
+            output_dir, "enriched_judgments.csv"
+        )  # Changed here
         enriched_judgments = enrich_judgments(judgment_outputs)
         write_df_to_csv(
             enriched_judgments[:printout_limit],
-            enriched_output_dir,
+            enriched_output_path,
         )
-        return enriched_output_dir
+        return enriched_output_path
 
 
 if __name__ == "__main__":
