@@ -252,6 +252,8 @@ if __name__ == "__main__":
         # Evaluate the judge prompt and get the evaluation result
         eval_result = eval_judge.evaluate_judge_prompt(judge_prompt, config["eval_on"])
 
+        write_df_to_csv(eval_result, f"{judge_prompt[:10]-{i}}")
+
         # Calculate accuracy score by comparing experimental and ideal judge scores
         acc_score = (
             eval_result["exp_judge_score"] == eval_result["ideal_judge_score"]
