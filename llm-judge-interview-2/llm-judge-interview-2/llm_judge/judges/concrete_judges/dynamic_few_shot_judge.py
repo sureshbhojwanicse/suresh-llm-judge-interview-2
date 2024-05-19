@@ -23,13 +23,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 import dotenv
 
 dotenv.load_dotenv("../../../.env")
-global_voyage_client = voyageai.Client()
 
 
 class DynamicFewShotJudge(Judge):
     """
     Judge that compares a candidate LLM to a baseline LLM to determine which is better.
     """
+
+    # kept it inside as it raises api not error
+    global global_voyage_client
+    global_voyage_client = voyageai.Client()
 
     def __init__(
         self,

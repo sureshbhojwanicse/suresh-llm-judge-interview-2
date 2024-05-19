@@ -94,12 +94,14 @@ class Judge(ABC):
             reference=reference_answer,
             candidate=answer.content,
         )
+        # print(f"\n\n User Prompt: \n{user_prompt} \n\n")
         conversation = Conversation(
             [
                 Turn(role=ConversationRole.system, content=system_prompt),
                 Turn(role=ConversationRole.user, content=user_prompt),
             ]
         )
+        # print("*"*20, "\n\n", conversation.convert_to_prompt(), "\n\n", flush=True)
         return conversation
 
     @staticmethod
@@ -117,8 +119,12 @@ class Judge(ABC):
         """
         Judge a single pair of answers using the given LLM by calling adapters.
         """
-        llm = AdapterFactory.get_adapter(judge_llm)
+
+        # fixed wrong function call
+        llm = AdapterFactory.get_adapter_by_path(judge_llm)
         input_conv = llm.convert_to_input(conv)
+
+        # print((f"{'*'*20} \n\n {input_conv} \n\n"), flush=True)
         winner = "error"
         judgment = ""
 
@@ -153,15 +159,18 @@ class Judge(ABC):
     def _generate_single_judgment(
         self, pair: Judgment, reference_answer: str
     ) -> Optional[Judgment]:
+
         try:
             conversation = self._create_judge_input(
                 pair, "prompt_template", reference_answer
             )
+            # print("\n", "*"*50, "\n\n Unswapped Converssation \n", conversation.convert_to_prompt(), "\n\n", flush=True)
             winner, judgment_content = self._judge_pair(conversation, self.judge_llm)
 
             conversation_swapped = self._create_judge_input(
                 pair, "reversed_prompt_template", reference_answer
             )
+            # print("\n","*"*50, "\n\n Swapped Conversation \n", conversation_swapped.convert_to_prompt(), "\n\n", flush=True)
             winner_swapped, judgment_content_swapped = self._judge_pair(
                 conversation_swapped, self.judge_llm
             )
