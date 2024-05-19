@@ -58,6 +58,7 @@ class ConvoJSONQuestionGenerator(BaseQuestionGenerator):
         if self.num_samples and self.num_samples < len(data):
             data = data[: self.num_samples]
         questions = []
+
         for entry in data:
             conversation = self.get_conversation_from_entry(entry)
             ground_truth = self.get_ground_truth_from_entry_or_none(entry)
@@ -65,7 +66,10 @@ class ConvoJSONQuestionGenerator(BaseQuestionGenerator):
                 Question(
                     conversation=conversation,
                     conversation_hash=gen_hash(stringify_conversation(conversation)),
-                    ground_truth={"": ground_truth} if ground_truth else {},
+                    # to be compatible with given data `raw_data.json`
+                    ground_truth=(
+                        {"": list(ground_truth.values())[0]} if ground_truth else {}
+                    ),
                     args=self.get_args_from_entry(entry),
                 )
             )
